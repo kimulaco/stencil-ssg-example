@@ -5,12 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MatchResults, } from "@stencil/router";
 export namespace Components {
     interface AppHome {
     }
-    interface AppProfile {
-        "match": MatchResults;
+    interface AppPost {
+        "match": any;
     }
     interface AppRoot {
     }
@@ -22,11 +21,11 @@ declare global {
         prototype: HTMLAppHomeElement;
         new (): HTMLAppHomeElement;
     };
-    interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {
+    interface HTMLAppPostElement extends Components.AppPost, HTMLStencilElement {
     }
-    var HTMLAppProfileElement: {
-        prototype: HTMLAppProfileElement;
-        new (): HTMLAppProfileElement;
+    var HTMLAppPostElement: {
+        prototype: HTMLAppPostElement;
+        new (): HTMLAppPostElement;
     };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
@@ -36,21 +35,21 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
-        "app-profile": HTMLAppProfileElement;
+        "app-post": HTMLAppPostElement;
         "app-root": HTMLAppRootElement;
     }
 }
 declare namespace LocalJSX {
     interface AppHome {
     }
-    interface AppProfile {
-        "match"?: MatchResults;
+    interface AppPost {
+        "match"?: any;
     }
     interface AppRoot {
     }
     interface IntrinsicElements {
         "app-home": AppHome;
-        "app-profile": AppProfile;
+        "app-post": AppPost;
         "app-root": AppRoot;
     }
 }
@@ -59,7 +58,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-            "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
+            "app-post": LocalJSX.AppPost & JSXBase.HTMLAttributes<HTMLAppPostElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
         }
     }

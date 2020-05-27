@@ -1,6 +1,5 @@
 import { Config } from '@stencil/core';
-
-// https://stenciljs.com/docs/config
+import { env } from '@alepop/stencil-env';
 
 export const config: Config = {
   globalStyle: 'src/global/app.css',
@@ -13,5 +12,8 @@ export const config: Config = {
       serviceWorker: null,
       baseUrl: 'https://myapp.local/'
     }
-  ]
+  ],
+  plugins: [
+    env(),
+  ],
 };

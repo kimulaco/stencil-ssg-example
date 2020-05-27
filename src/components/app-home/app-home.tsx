@@ -1,4 +1,5 @@
-import { Component, h } from '@stencil/core';
+import { Component, State, h } from '@stencil/core';
+import { getPostList } from '../../utils/cms';
 
 @Component({
   tag: 'app-home',
@@ -6,27 +7,25 @@ import { Component, h } from '@stencil/core';
   shadow: true
 })
 export class AppHome {
+  @State() posts: any[] = [];
+
+  async componentWillLoad() {
+    this.posts = await getPostList();
+    console.log(this.posts);
+  }
 
   render() {
     return (
       <div class='app-home'>
-        <p>
-          Welcome to the Stencil App Starter.
-          You can use this starter to build entire apps all with
-          web components using Stencil!
-          Check out our docs on <a href='https://stenciljs.com'>stenciljs.com</a> to get started.
-        </p>
-
-        <stencil-route-link url='/profile/stencil'>
-          <button>
-            Profile page
-          </button>
-        </stencil-route-link>
-        <stencil-route-link url='/profile/kimulaco'>
-          <button>
-            kimulaco page
-          </button>
-        </stencil-route-link>
+        {this.posts.map((post: any) => {
+          return (
+            <div class='post-link'>
+              <stencil-route-link url={`/post/${post.id}`}>
+                <h2 class="post-link_title">{post.title}</h2>
+              </stencil-route-link>
+            </div>
+          );
+        })}
       </div>
     );
   }

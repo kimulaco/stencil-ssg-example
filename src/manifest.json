@@ -1,6 +1,6 @@
 {
-  "name": "Stencil Starter",
-  "short_name": "Stencil",
+  "name": "kimulaco blog by StencilJS",
+  "short_name": "kimulaco blog",
   "start_url": "/",
   "display": "standalone",
   "icons": [{
